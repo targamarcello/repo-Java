@@ -4,27 +4,44 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+// Classe che rappresenta una Gara
 public class Gara {
-    private String _nome;
-    private String _nazione;
-    private ArrayList<Scuderia> _griglia;
-    private Cronometro _cronom;
-    private String _vincitore;
-    private int _nScuderie;
+    private String _nome;                     // Nome della gara
+    private String _nazione;                  // Nazione in cui si svolge la gara
+    private ArrayList<Scuderia> _griglia;     // Lista delle scuderie partecipanti
+    private Cronometro _cronom;               // Cronometro per misurare i tempi (non usato direttamente nel codice attuale)
+    private String _vincitore;                // Nome della scuderia vincitrice
+    private int _nScuderie;                   // Numero di scuderie partecipanti (non usato direttamente nel codice attuale)
 
-    public Gara(String nome, String nazione){
-        _nome = nome;
-        _nazione = nazione;
-        _griglia = new ArrayList<>();
+    // Costruttore della classe Gara
+    public Gara(String nome, String nazione) {
+        _nome = nome;                         // Inizializza il nome della gara
+        _nazione = nazione;                   // Inizializza la nazione
+        _griglia = new ArrayList<>();         // Inizializza la lista delle scuderie come vuota
     }
 
-    public String getNome(){return _nome;}
-    public String getNazione(){return _nazione;}
-    public ArrayList<Scuderia> getGriglia(){return _griglia;}
-    public String getVincitore(){return _vincitore;}
-
-    public void addScuderia(Scuderia scud){
-        _griglia.add(scud);
+    // Getter per il nome della gara
+    public String getNome() {
+        return _nome;
     }
 
+    // Getter per la nazione della gara
+    public String getNazione() {
+        return _nazione;
+    }
+
+    // Getter per la lista delle scuderie partecipanti
+    public ArrayList<Scuderia> getGriglia() {
+        return _griglia;
+    }
+
+    // Getter per il vincitore della gara
+    public String getVincitore() {
+        return _vincitore;
+    }
+
+    // Metodo per aggiungere una scuderia alla griglia
+    public void addScuderia(Scuderia scud) {
+        _griglia.add(scud);                   // Aggiunge la scuderia alla lista
+    }
 }

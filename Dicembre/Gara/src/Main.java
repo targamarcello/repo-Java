@@ -13,5 +13,3 @@ public class Main {
         f.startFrontEnd();
     }
 }
-
-//fare classe frontend per la gestione della gara
