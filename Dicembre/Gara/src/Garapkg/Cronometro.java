@@ -8,14 +8,15 @@ public class Cronometro {
     private int tempoGiro;
 
     public Cronometro() {
-        setStartTime();
+
     }
 
     public void setStartTime() {
         startTime = LocalTime.now();
     }
 
-    public void setEndTime() {
+    public void setEndTime() throws InterruptedException {
+        Thread.sleep(1000);
         endTime = LocalTime.now();
     }
 
