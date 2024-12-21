@@ -9,9 +9,7 @@ public class Gara {
     private String _nome;                     // Nome della gara
     private String _nazione;                  // Nazione in cui si svolge la gara
     private ArrayList<Scuderia> _griglia;     // Lista delle scuderie partecipanti
-    private Cronometro _cronom;               // Cronometro per misurare i tempi (non usato direttamente nel codice attuale)
     private String _vincitore;                // Nome della scuderia vincitrice
-    private int _nScuderie;                   // Numero di scuderie partecipanti (non usato direttamente nel codice attuale)
 
     // Costruttore della classe Gara
     public Gara(String nome, String nazione) {
