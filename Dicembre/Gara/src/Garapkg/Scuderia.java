@@ -47,11 +47,7 @@ public class Scuderia implements Comparable<Scuderia> {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // Controlla se è lo stesso oggetto
-        if (obj == null || getClass() != obj.getClass()) return false; // Controlla la classe
-        Scuderia scuderia = (Scuderia) obj;
-        return _numAuto == scuderia._numAuto && // Confronta numero auto
-                _scuderia.equals(scuderia._scuderia) && // Confronta il nome della scuderia
-                _pilota.equals(scuderia._pilota); // Confronta il pilota
+        else return false;
     }
 
     // Metodo compareTo per confrontare i tempi di giro delle scuderie
