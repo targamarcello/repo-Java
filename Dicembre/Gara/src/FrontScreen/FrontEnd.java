@@ -4,6 +4,7 @@ import Garapkg.Cronometro;
 import Garapkg.Gara;
 import Garapkg.Pilota;
 import Garapkg.Scuderia;
+import Garapkg.CarSound;
 import static utility.Tools.*;
 
 import java.awt.*;
@@ -50,10 +51,12 @@ public class FrontEnd {
 
     // Metodo per simulare la corsa della gara
     public void corriGara() {
+        CarSound sounoBrum = new CarSound();
         try {
             for (Scuderia scud : gara.getGriglia()) { // Iterazione su tutte le scuderie della gara
                 Cronometro c = new Cronometro(); // Oggetto per calcolare i tempi
                 c.setStartTime(); // Inizio del cronometro
+                sounoBrum.startEngineSound();
                 Thread.sleep(2000); // Simulazione di tempo di attesa
                 c.setEndTime(); // Fine del cronometro
 
@@ -65,6 +68,7 @@ public class FrontEnd {
                 scud.setTGiro(tempoGiro);
                 System.out.println(scud.getScuderia() + " ha finito il giro in " + tempoGiro + " secondi");
             }
+            sounoBrum.stopEngineSound();
         } catch (Exception e) {
             System.out.println(e.getMessage()); // Gestione di eventuali errori
         }
