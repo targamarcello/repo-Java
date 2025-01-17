@@ -1,7 +1,14 @@
 package FrontEnd;
 import BackEnd.Genere;
 import BackEnd.Libro;
+import BackEnd.Mensola;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
 import java.util.Scanner;
 public class Tools {
     /*public static void main(String[] args) {
@@ -64,5 +71,6 @@ public class Tools {
         lGenere = tipoGenere[Menu(sceltaGenere,sc)];
         return new Libro(aut,tit,nPag);
     }
+
 
 }
