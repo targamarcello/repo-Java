@@ -1,21 +1,20 @@
 package FrontEnd;
+
 import BackEnd.Genere;
 import BackEnd.Libro;
-import BackEnd.Mensola;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Tools {
     /*public static void main(String[] args) {
 
     }*/
-    private Tools()
-    {}; //impedisce di istanziare la classe
+    private Tools() {
+    }
+
+    ; //impedisce di istanziare la classe
+
     public static void clrScr() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -55,22 +54,33 @@ public class Tools {
         return scelta;
     }
 
-    public static Libro leggiLibro(Scanner sc, boolean soluz){
-        Genere lGenere;
-        String aut, tit;
-        int nPag;
-        final double costoPagina;
-        Genere[]tipoGenere = Genere.values();
-        String[] sceltaGenere = {"Romanzo","Manuale","Thriller","Generico",};
-        System.out.println("Inserisci autore libro");
-        aut = sc.nextLine();
-        System.out.println("Inserisci titolo libro");
-        tit = sc.nextLine();
-        System.out.println("Inserisci numero pagine");
-        nPag = Integer.parseInt(sc.nextLine());
-        lGenere = tipoGenere[Menu(sceltaGenere,sc)];
-        return new Libro(aut,tit,nPag);
+    public static Libro leggiLibro(Scanner tastiera, boolean soluzioni) {
+        Genere[] tipoGenere = Genere.values();
+        String[] sceltaGenere = {"GENERE", "ROMANZO", "MANUALE", "THRILLER", "GENERICO"};
+
+
+        System.out.print("Inserisci l'autore del libro: ");
+        String autore = tastiera.nextLine();
+        System.out.print("Inserisci il titolo del libro: ");
+        String titolo = tastiera.nextLine();
+        System.out.print("Inserisci il numero di pagine del libro: ");
+        int nPagine = Integer.parseInt(tastiera.nextLine());
+
+        System.out.println("Inserisci il tipo del libro: ");
+//         Menu(sceltaGenere, tastiera);
+        Genere tipo = tipoGenere[Menu(sceltaGenere, tastiera) - 1]; // visto che Menu parte da indice 1
+
+
+//        Libro l = new Libro(autore, titolo, nPagine, tipo);
+//        return l;
+        return new Libro(autore, titolo, nPagine, tipo);
+
     }
 
-
+    public static void visualizzaMensola(ArrayList<Libro> volumi) {
+        for (Libro l : volumi) {
+            clrScr();
+            System.out.println(l.toString());
+        }
+    }
 }
