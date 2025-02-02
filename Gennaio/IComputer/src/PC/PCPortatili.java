@@ -34,8 +34,8 @@ public class PCPortatili extends ClassePC{
         return _pollici;
     }
     @Override
-    public String toString(){
-        return super.toString() + String.format("- Peso: %d - Altezza: %d - Larghezza: %d - Profondità: %d - Pollici Monitor: %d\n",_peso,_altezza, _larghezza, _profondita, _pollici);
+    public String toString() {
+        return super.toString() + String.format("- Peso: %d kg - Altezza: %.2f cm - Larghezza: %.2f cm - Profondità: %.2f cm - Pollici Monitor: %d\n", _peso, _altezza, _larghezza, _profondita, _pollici);
     }
 }
 /*I PC portatili sono caratterizzati dal peso, dalle dimensioni fisiche (altezza, larghezza e profondità) e dalle dimensioni del video.*/
