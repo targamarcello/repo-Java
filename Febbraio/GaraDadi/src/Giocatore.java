@@ -1,26 +1,26 @@
 public class Giocatore {
     private String nome;
-    private int faccia;
     private int vittorie;
-    public Dado dice;
-    public Giocatore(String nome, int facce){
+    private Dado dice;
+    public Giocatore(String nome){
         this.nome = nome;
-        dice = new Dado(facce);
-    }
-
-    public int getVittorie() {
-        return vittorie;
-    }
-
-    public void setVittorie(int vittorie) {
-        this.vittorie = vittorie;
+        this.vittorie = 0;
+        this.dice = new Dado();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public int getFaccia() {
-        return faccia;
+    public int getVittorie() {
+        return vittorie;
     }
+    public void incrementaVittorie(){
+        this.vittorie++;
+    }
+    public int lanciaDado(){
+        dice.Lancia();
+        return dice.getValFaccia();
+    }
+
 }

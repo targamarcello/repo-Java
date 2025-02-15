@@ -1,68 +1,56 @@
-import java.util.Scanner;
-
-public class Gara  {
-
-    private int nRound;
-    private int reset;
+public class Gara {
     private Giocatore g1;
     private Giocatore g2;
+    private int nRound;
+    private int roundAttuale;
 
-    public Gara(int n,String n1,String n2, int facce){
-        g1 = new Giocatore(n1,facce);
-        g2 = new Giocatore(n2,facce);
-        nRound = n;
-        reset = nRound;
+    public Gara(Giocatore g1, Giocatore g2, int nRound) {
+        this.g1 = g1;
+        this.g2 = g2;
+        this.nRound = nRound;
+        this.roundAttuale = 0;
     }
-    public boolean FineGara(){
-        //proprietà utilizzata per determinare il fine della gara
-        if(nRound == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+    public boolean isFineGara(){
+        return roundAttuale >= nRound;
     }
-
-
-
-    public String Winner(){
-        /*ritorna il nome del vincitore, lo stato di parità o lo stato
-        della partita se in corso*/
-        g1.dice.Lancia();
-        g2.dice.Lancia();
-        if(g1.dice.getValfaccia() > g2.dice.getValfaccia()){
-            //incremento delle vittorie di g1
-            nRound--;
-            return String.format("Il vincitore del round è: %s",g1.getNome());
-        }else if(g1.dice.getValfaccia()<g2.dice.getValfaccia()){
-            //incremento vincite di g2
-            nRound--;
-            return String.format("Il vincitore del round è: %s",g2.getNome());
+    public String getWinner(){
+        if(!isFineGara()){
+            return "La partita è in corso...";
+        }
+        if(g1.getVittorie()>g2.getVittorie()){
+            return "Il vincitore del round è: "+g1.getNome();
+        }else if(g2.getVittorie()>g1.getVittorie()){
+            return "Il vincitore del round è: "+g2.getNome();
         }else{
-            nRound--;
-            return String.format("Pareggio tra %s e %s",g1.getNome(), g2.getNome());
+            return "La gara è finita in parità";
         }
     }
-    public void Round(){
-        //esegue un round della partita
-
-
-    }
-    public String GameWin(){
-        /*se la partita è finita determina il vincitore o la
-         condizione di parità*/
-        if(g1.getVittorie() > g2.getVittorie()){
-            return String.format("Il vincitore della gara è %s",g1.getNome());
-        }else if(g1.getVittorie()<g2.getVittorie()){
-            return String.format("Il vincitore della gara è %s",g2.getNome());
+    public void round(){
+        if(isFineGara()){
+            System.out.println("La gara è terminata");
+            return;
+        }
+        int lancio1 = g1.lanciaDado();
+        int lancio2  = g2.lanciaDado();
+        System.out.println(g1.getNome() + " ha lanciato: "+lancio1);
+        System.out.println(g2.getNome() + " ha lanciato: "+lancio2);
+        if(lancio1>lancio2){
+            g1.incrementaVittorie();
+            System.out.println(g1.getNome() + " ha vinto il round!");
+        }else if(lancio2>lancio1){
+            g2.incrementaVittorie();
+            System.out.println(g2.getNome() + " ha vinto il round!");
         }else{
-            return String.format("La gara è finita in parità");
+            g1.incrementaVittorie();
+            g2.incrementaVittorie();
+            System.out.println("Round finito in parità");
+        }
+        roundAttuale++;
+        if(isFineGara()) {
+            System.out.println(getWinner());
         }
     }
-    public void ResetGame(){
-        //resetta la partita
-        nRound = reset;
-        g1.setVittorie(0);
-        g2.setVittorie(0);
+    public void resetGame(){
+        roundAttuale = 0;
     }
 }

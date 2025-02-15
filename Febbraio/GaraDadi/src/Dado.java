@@ -2,23 +2,17 @@ import java.util.Random;
 
 public class Dado {
     private int nFacce;
-    private int valfaccia;
-    private static Random valLancio;
-    public Dado(int nFacce){
-        this.nFacce = nFacce;
-        valLancio = new Random();
+    private int valFaccia;
+    private Random valLancio;
+    public Dado(){
+        this.nFacce = 6;
+        this.valLancio = new Random();
     }
-
-    public int getnFacce() {
-        return nFacce;
-    }
-
-    public int getValfaccia() {
-        return valfaccia;
-    }
-
     public void Lancia(){
-        valfaccia = valLancio.nextInt(1,nFacce+1);
+        this.valFaccia = valLancio.nextInt(nFacce)+1;
+    }
+    public int getValFaccia(){
+        return valFaccia;
     }
 
 }
