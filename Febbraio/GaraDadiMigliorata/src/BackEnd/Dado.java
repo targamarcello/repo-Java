@@ -2,7 +2,7 @@ package BackEnd;
 
 import java.util.Random;
 
-public class Dado {
+public class Dado implements Comparable<Dado>{
     private int nFacce;
     private int valFaccia;
     private Random valLancio;
@@ -17,4 +17,8 @@ public class Dado {
         return valFaccia;
     }
 
+    @Override
+    public int compareTo(Dado dado2){
+        return Integer.compare(this.valFaccia,dado2.getValFaccia());
+    }
 }

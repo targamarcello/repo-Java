@@ -10,9 +10,7 @@ import static Utility.Tools.*;
 
 public class Main {
     public static void main(String[] args) {
-        /*BackEnd.Giocatore g1 = new BackEnd.Giocatore("Mazzullo");
-        BackEnd.Giocatore g2 = new BackEnd.Giocatore("Melon");
-        BackEnd.Gara gara = new BackEnd.Gara(g1,g2,5);*/
+
         Scanner sc = new Scanner(System.in);
         Gara gara = null;
         boolean esci = false;

@@ -2,7 +2,7 @@ package BackEnd;
 
 import BackEnd.Dado;
 
-public class Giocatore {
+public class Giocatore implements Comparable<Giocatore>{
     private String nome;
     private int vittorie;
     private Dado dice;
@@ -29,5 +29,11 @@ public class Giocatore {
         dice.Lancia();
         return dice.getValFaccia();
     }
+
+    @Override
+    public int compareTo(Giocatore playerExtra){
+        return Integer.compare(this.vittorie, playerExtra.getVittorie());
+    }
+
 
 }

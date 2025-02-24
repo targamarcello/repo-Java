@@ -22,9 +22,9 @@ public class Gara {
             if (!isFineGara()) {
                 return "La partita è in corso...";
             }
-            if (g1.getVittorie() > g2.getVittorie()) {
+            if (g1.compareTo(g2)>0) {
                 return "Il vincitore della gara è: " + g1.getNome();
-            } else if (g2.getVittorie() > g1.getVittorie()) {
+            } else if (g2.compareTo(g1)<0) {
                 return "Il vincitore della gara è: " + g2.getNome();
             } else {
                 return "La gara è finita in parità";
