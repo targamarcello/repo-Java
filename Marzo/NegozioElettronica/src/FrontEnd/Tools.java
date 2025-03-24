@@ -1,11 +1,8 @@
 // Tools.java
 package FrontEnd;
 
-import Negozio.ProdottoElettronico;
-import Negozio.Smartphone;
+import Negozio.Prodotti.*;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,7 +46,8 @@ public class Tools {
         } while ((scelta < 1) || (scelta > opzioni.length - 1));
         return scelta;
     }
-    public static Smartphone leggiSmartphone(Scanner scanner){
+
+    public static Smartphone leggiSmartphone(Scanner scanner) {
         System.out.println("Inserire codice:");
         String codice = scanner.nextLine();
         System.out.println("Inserire marca:");
@@ -60,10 +58,30 @@ public class Tools {
         String modello = scanner.nextLine();
         System.out.println("Inserire memoria:");
         int memoria = Integer.parseInt(scanner.nextLine());
-        return new Smartphone(prezzo,marca,codice,modello,memoria);
+        return new Smartphone(prezzo, marca, codice, modello, memoria);
     }
-    public static void visualizzaProdotti(ArrayList<ProdottoElettronico> inventario){
-        for(ProdottoElettronico p : inventario){
+
+    public static Prodotto leggiManuale(Scanner scanner) {
+        System.out.println("Inserisci nome manuale:");
+        String nome = scanner.nextLine();
+        System.out.println("Inserisci descrizione manuale:");
+        String desc = scanner.nextLine();
+        System.out.println("Inserisci autore manuale:");
+        String aut = scanner.nextLine();
+        System.out.println("Inserisci ISBN:");
+        String isbn = scanner.nextLine();
+        System.out.println("Inserisci prezzo manuale:");
+        double prez = Double.parseDouble(scanner.nextLine());
+        System.out.println("Inserisci quantità:");
+        int quant = Integer.parseInt(scanner.nextLine());
+        System.out.println("Inserisci argomento manuale:");
+        String argomento = scanner.nextLine();
+        Manuale manuale = new Manuale(nome, desc, aut, isbn, prez, quant, argomento);
+        return manuale;
+    }
+
+    public static void visualizzaProdotti(ArrayList<Prodotto> inventario) {
+        for (Prodotto p : inventario) {
             System.out.println(p.toString());
         }
     }
