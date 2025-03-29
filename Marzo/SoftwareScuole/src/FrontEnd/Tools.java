@@ -1,8 +1,6 @@
 // Tools.java
 package FrontEnd;
 
-import Negozio.Prodotti.*;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,7 +45,7 @@ public class Tools {
         return scelta;
     }
 
-    public static Smartphone leggiSmartphone(Scanner scanner) {
+    /*public static Smartphone leggiSmartphone(Scanner scanner) {
         System.out.println("Inserire codice:");
         String codice = scanner.nextLine();
         System.out.println("Inserire marca:");
@@ -84,7 +82,7 @@ public class Tools {
         for (Prodotto p : inventario) {
             System.out.println(p.toString());
         }
-    }
+    }*/
 
 
 }
