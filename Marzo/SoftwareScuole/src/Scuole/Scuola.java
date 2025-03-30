@@ -21,6 +21,10 @@ public abstract class Scuola {
         this.numeroLaboratori = numeroLaboratori;
     }
 
+    public String getCodice() {
+        return codice;
+    }
+
     abstract double calcoloContributo();
 
     @Override

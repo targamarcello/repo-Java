@@ -1,6 +1,8 @@
 // Tools.java
 package FrontEnd;
 
+import Scuole.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,44 +47,56 @@ public class Tools {
         return scelta;
     }
 
-    /*public static Smartphone leggiSmartphone(Scanner scanner) {
-        System.out.println("Inserire codice:");
+    public static Scuola leggiScuola(Scanner scanner) {
+        System.out.println("Inserisci codice scuola:");
         String codice = scanner.nextLine();
-        System.out.println("Inserire marca:");
-        String marca = scanner.nextLine();
-        System.out.println("Inserire prezzo:");
-        double prezzo = Double.parseDouble(scanner.nextLine());
-        System.out.println("Inserire modello:");
-        String modello = scanner.nextLine();
-        System.out.println("Inserire memoria:");
-        int memoria = Integer.parseInt(scanner.nextLine());
-        return new Smartphone(prezzo, marca, codice, modello, memoria);
-    }
+        System.out.println("Inserisci denominazione scuola:");
+        String denomin = scanner.nextLine();
+        System.out.println("Inserisci indirizzo scuola: ");
+        String indirizzo = scanner.nextLine();
+        System.out.println("Inserisci città scuola:");
+        String citta = scanner.nextLine();
+        System.out.println("Inserisci numero studenti:");
+        int nStudenti = Integer.parseInt(scanner.nextLine());
+        System.out.println("Inserisci numero classi:");
+        int nClassi = Integer.parseInt(scanner.nextLine());
+        System.out.println("Inserisci numero sedi aggiuntive:");
+        int nSedi = Integer.parseInt(scanner.nextLine());
+        System.out.println("Inserisci numero laboratori:");
+        int nLaboratori = Integer.parseInt(scanner.nextLine());
 
-    public static Prodotto leggiManuale(Scanner scanner) {
-        System.out.println("Inserisci nome manuale:");
-        String nome = scanner.nextLine();
-        System.out.println("Inserisci descrizione manuale:");
-        String desc = scanner.nextLine();
-        System.out.println("Inserisci autore manuale:");
-        String aut = scanner.nextLine();
-        System.out.println("Inserisci ISBN:");
-        String isbn = scanner.nextLine();
-        System.out.println("Inserisci prezzo manuale:");
-        double prez = Double.parseDouble(scanner.nextLine());
-        System.out.println("Inserisci quantità:");
-        int quant = Integer.parseInt(scanner.nextLine());
-        System.out.println("Inserisci argomento manuale:");
-        String argomento = scanner.nextLine();
-        Manuale manuale = new Manuale(nome, desc, aut, isbn, prez, quant, argomento);
-        return manuale;
-    }
+        System.out.println("Scegli tipo di scuola: \n[1]Scuola Elementare [2]Scuola Media [3]Liceo [4]Tecnico [5]Professionale");
+        int scelta = Integer.parseInt(scanner.nextLine());
 
-    public static void visualizzaProdotti(ArrayList<Prodotto> inventario) {
-        for (Prodotto p : inventario) {
-            System.out.println(p.toString());
+        switch(scelta){
+            case 1->{
+                return new ScuolaElementare(codice,denomin,indirizzo,citta,nStudenti,nClassi,nSedi,nLaboratori);
+            }
+            case 2->{
+                return new ScuolaMedia(codice,denomin,indirizzo,citta,nStudenti,nClassi,nSedi,nLaboratori);
+            }
+            case 3->{
+                return new Liceo(codice,denomin,indirizzo,citta,nStudenti,nClassi,nSedi,nLaboratori);
+            }
+            case 4->{
+                return new Tecnico(codice,denomin,indirizzo,citta,nStudenti,nClassi,nSedi,nLaboratori);
+            }
+            case 5->{
+                return new Professionale(codice,denomin,indirizzo,citta,nStudenti,nClassi,nSedi,nLaboratori);
+            }
+            default ->{
+                System.out.println("SCELTA NON VALIDA!!");
+                return null;
+            }
+
         }
-    }*/
+    }
+
+    public static void visualizzaScuole(ArrayList<Scuola> scuole) {
+        for (Scuola scuola : scuole) {
+            System.out.println(scuola.toString());
+        }
+    }
 
 
 }
