@@ -47,13 +47,28 @@ public class Tools {
         return scelta;
     }
 
+    /**
+     *
+     * @param scanner
+     * @return Oggetto di tipo Smartphone
+     */
     public static Smartphone leggiSmartphone(Scanner scanner) {
         System.out.println("Inserire codice:");
         String codice = scanner.nextLine();
         System.out.println("Inserire marca:");
         String marca = scanner.nextLine();
-        System.out.println("Inserire prezzo:");
-        double prezzo = Double.parseDouble(scanner.nextLine());
+        double prezzo = 0;
+        boolean prezzoValido = false;
+        while (!prezzoValido) {
+            try {
+                System.out.println("Inserire prezzo:");
+                prezzo = Double.parseDouble(scanner.nextLine());
+                prezzoValido = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Errore: Il prezzo inserito non è valido!!");
+            }
+        }
+
         System.out.println("Inserire modello:");
         String modello = scanner.nextLine();
         System.out.println("Inserire memoria:");
@@ -61,6 +76,11 @@ public class Tools {
         return new Smartphone(prezzo, marca, codice, modello, memoria);
     }
 
+    /**
+     *
+     * @param scanner
+     * @return Oggetto di tipo Manuale
+     */
     public static Prodotto leggiManuale(Scanner scanner) {
         System.out.println("Inserisci nome manuale:");
         String nome = scanner.nextLine();
@@ -70,8 +90,17 @@ public class Tools {
         String aut = scanner.nextLine();
         System.out.println("Inserisci ISBN:");
         String isbn = scanner.nextLine();
-        System.out.println("Inserisci prezzo manuale:");
-        double prez = Double.parseDouble(scanner.nextLine());
+        double prez = 0;
+        boolean prezzoValido = false;
+        while (!prezzoValido) {
+            try {
+                System.out.println("Inserisci prezzo manuale:");
+                prez = Double.parseDouble(scanner.nextLine());
+                prezzoValido = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Errore: Il prezzo inserito non è valido!!");
+            }
+        }
         System.out.println("Inserisci quantità:");
         int quant = Integer.parseInt(scanner.nextLine());
         System.out.println("Inserisci argomento manuale:");
@@ -80,11 +109,16 @@ public class Tools {
         return manuale;
     }
 
+    /**
+     *
+     * @param inventario
+     */
     public static void visualizzaProdotti(ArrayList<Prodotto> inventario) {
         for (Prodotto p : inventario) {
-            System.out.println(p.toString());
+            System.out.println(p);
         }
     }
+
 
 
 }

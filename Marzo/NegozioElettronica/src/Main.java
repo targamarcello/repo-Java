@@ -3,7 +3,11 @@ import Negozio.GestioneNegozio;
 import Negozio.Prodotti.Smartphone;
 
 import java.util.Scanner;
-
+/**
+ * @author Marcello Targa
+ * @version 1.0
+ * @since 31/032025
+ */
 public class Main {
     public static void main(String[] args) {
         boolean uscita = false;

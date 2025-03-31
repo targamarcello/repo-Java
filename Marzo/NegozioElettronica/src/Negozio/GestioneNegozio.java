@@ -7,6 +7,11 @@ import Negozio.Prodotti.ProdottoElettronico;
 
 import java.util.ArrayList;
 
+/**
+ * @author Marcello Targa
+ * @version 1.0
+ * @since 31/032025
+ */
 public class GestioneNegozio {
     private int numeroProdotti;
     private int maxProdotti;
@@ -16,11 +21,20 @@ public class GestioneNegozio {
         this.maxProdotti = max;
     }
 
+    /**
+     *
+     * @return Copia di un ArrayList di tipo Prodotto
+     */
     public ArrayList<Prodotto> getInventario() {
-        return inventario;
+        return new ArrayList<Prodotto>(inventario);
     }
 
-    public void addProdotto(Prodotto prod) {
+    /**
+     * Metodo per aggiungere un oggetto di tipo Prodotto
+     * @param prod
+     * @throws Exception solleva eccezione personalizzata
+     */
+    public void addProdotto(Prodotto prod)throws Exception {
         if (prod != null && !inventario.contains(prod)) {
             inventario.add(prod);
             numeroProdotti++;
@@ -29,7 +43,12 @@ public class GestioneNegozio {
         }
     }
 
-    public void removeProdotto(ProdottoElettronico prod) {
+    /**
+     *
+     * @param prod
+     * @throws Exception solleva eccezione personalizzata
+     */
+    public void removeProdotto(ProdottoElettronico prod) throws Exception {
         if (prod != null && inventario.contains(prod)) {
             inventario.remove(prod);
             numeroProdotti--;
@@ -38,11 +57,15 @@ public class GestioneNegozio {
         }
     }
 
+    /**
+     *
+     * @return ritorna false se non è verificata la condizione
+     * @throws Exception solleva eccezione personalizzata
+     */
     public boolean checkSpace() throws Exception {
-        boolean pieno = true;
         if (numeroProdotti == maxProdotti) {
             throw new Exception("Inventario pieno...");
-        } else {
+        }else{
             return false;
         }
     }
